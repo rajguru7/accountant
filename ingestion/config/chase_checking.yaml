@@ -1,0 +1,19 @@
+# Sample Configuration for Chase Bank CSV Import
+# Place your Chase CSV files matching the pattern in the import directory
+
+institution: "Chase Bank"
+driver: "csv"
+file_pattern: "chase-*.csv"
+skip_header_lines: 0
+account: "Assets:US:Chase:Checking"
+currency: "USD"
+
+columns:
+  date: "Posting Date"
+  narration: "Description"
+  amount: "Amount"
+  
+# Optional: Specify additional metadata columns to preserve
+# meta:
+#   - "Transaction ID"
+#   - "Check Number"

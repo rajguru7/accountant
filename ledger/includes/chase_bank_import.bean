@@ -1,0 +1,23 @@
+; Imported transactions from Chase Bank
+; Total transactions: 5
+
+2024-01-15 * "Chase Bank" "GROCERY STORE #123"
+  Assets:US:Chase:Checking  -45.23 USD
+  Expenses:UNCATEGORIZED
+
+2024-01-16 * "Chase Bank" "PAYROLL DEPOSIT"
+  Assets:US:Chase:Checking  2500.00 USD
+  Expenses:UNCATEGORIZED
+
+2024-01-17 * "Chase Bank" "GAS STATION"
+  Assets:US:Chase:Checking  -35.50 USD
+  Expenses:UNCATEGORIZED
+
+2024-01-18 * "Chase Bank" "ONLINE PURCHASE"
+  Assets:US:Chase:Checking  -129.99 USD
+  Expenses:UNCATEGORIZED
+
+2024-01-20 * "Chase Bank" "ATM WITHDRAWAL"
+  Assets:US:Chase:Checking  -100.00 USD
+  Expenses:UNCATEGORIZED
+
