@@ -185,6 +185,10 @@ class GenericCSVImporter:
             amount = txn['amount']
             if self.account:
                 entry_lines.append(f'  {self.account}  {amount} USD')
+                # Add balancing entry (Beancount requires transactions to balance)
+                # The imbalance will be automatically filled by Beancount's auto-complete
+                # or can be manually categorized later
+                entry_lines.append(f'  Expenses:UNCATEGORIZED')
             
             # Add metadata as comments if present
             if 'meta' in txn:

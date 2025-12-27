@@ -1,0 +1,18 @@
+# Sample Configuration for Zerodha Tradebook CSV Import
+
+institution: "Zerodha"
+driver: "csv"
+file_pattern: "tradebook-*.csv"
+skip_header_lines: 0
+account: "Assets:IN:Zerodha:Stocks"
+currency: "INR"
+
+columns:
+  date: "trade_date"
+  narration: "symbol"
+  amount: "net_amount"
+  meta:
+    - "order_id"
+    - "trade_type"
+    - "quantity"
+    - "price"

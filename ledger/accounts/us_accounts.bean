@@ -31,6 +31,8 @@
 2020-01-01 open Expenses:Entertainment USD
 2020-01-01 open Expenses:Utilities:Electric USD
 2020-01-01 open Expenses:Utilities:Internet USD
+2020-01-01 open Expenses:UNCATEGORIZED USD
+  description: "Placeholder for uncategorized expenses from imports"
 
 ; Tax Expenses (realized only upon filing)
 2020-01-01 open Expenses:Tax:US:TotalLiability USD
