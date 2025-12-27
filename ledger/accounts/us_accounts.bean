@@ -1,0 +1,37 @@
+; US Account Definitions
+; Chart of Accounts for US-based assets and liabilities
+
+; === Assets ===
+2020-01-01 open Assets:US:Chase:Checking USD
+2020-01-01 open Assets:US:Chase:Savings USD
+2020-01-01 open Assets:US:Robinhood:Cash USD
+2020-01-01 open Assets:US:Robinhood:Stocks USD
+2020-01-01 open Assets:US:Retirement:401k USD
+
+; Tax Withholding Assets
+2020-01-01 open Assets:US:IRS:Withholding USD
+  description: "Federal tax withheld from salary (treated as asset until filing)"
+
+; === Liabilities ===
+2020-01-01 open Liabilities:US:CreditCard USD
+
+; === Income ===
+2020-01-01 open Income:US:Salary USD
+2020-01-01 open Income:US:Dividends USD
+2020-01-01 open Income:US:Interest USD
+2020-01-01 open Income:US:CapitalGains USD
+
+; === Expenses ===
+2020-01-01 open Expenses:Housing:Rent USD
+2020-01-01 open Expenses:Food:Groceries USD
+2020-01-01 open Expenses:Food:Dining USD
+2020-01-01 open Expenses:Transport:Gas USD
+2020-01-01 open Expenses:Transport:Public USD
+2020-01-01 open Expenses:Healthcare USD
+2020-01-01 open Expenses:Entertainment USD
+2020-01-01 open Expenses:Utilities:Electric USD
+2020-01-01 open Expenses:Utilities:Internet USD
+
+; Tax Expenses (realized only upon filing)
+2020-01-01 open Expenses:Tax:US:TotalLiability USD
+  description: "Final tax liability settled upon filing return"

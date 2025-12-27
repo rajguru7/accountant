@@ -1,0 +1,26 @@
+; India Account Definitions
+; Chart of Accounts for India-based assets and liabilities
+
+; === Assets ===
+2020-01-01 open Assets:IN:ICICI:Savings INR
+2020-01-01 open Assets:IN:Zerodha:Cash INR
+2020-01-01 open Assets:IN:Zerodha:Stocks INR
+2020-01-01 open Assets:IN:NPS INR
+
+; Tax Deducted at Source (TDS) - treated as asset
+2020-01-01 open Assets:IN:ITD:TDS INR
+  description: "Tax Deducted at Source (treated as asset until filing/FTC)"
+
+; === Income ===
+2020-01-01 open Income:IN:Interest INR
+2020-01-01 open Income:IN:Dividends INR
+2020-01-01 open Income:IN:CapitalGains INR
+
+; === Expenses ===
+2020-01-01 open Expenses:IN:Food INR
+2020-01-01 open Expenses:IN:Transport INR
+2020-01-01 open Expenses:IN:Healthcare INR
+
+; Tax Expenses
+2020-01-01 open Expenses:Tax:IN:TotalLiability INR
+  description: "Final tax liability for India ITR filing"
