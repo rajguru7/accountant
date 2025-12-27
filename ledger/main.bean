@@ -12,3 +12,4 @@ include "accounts/crypto_accounts.bean"
 ; Include monthly transaction files
 ; Example: include "includes/2024-01.bean"
 include "includes/chase_bank_import.bean"
+include "includes/inflation_usd.bean"
