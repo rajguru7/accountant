@@ -30,8 +30,11 @@ SFIS prioritizes **Algorithmic Sovereignty** - giving you full control over your
 ## Installation
 
 ### Prerequisites
-- Python 3.8 or higher
-- pip package manager
+- Python 3.11 or higher
+- [uv](https://docs.astral.sh/uv/) - Fast Python package manager (recommended)
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
 
 ### Setup
 
@@ -41,14 +44,21 @@ git clone https://github.com/rajguru7/accountant.git
 cd accountant
 ```
 
-2. Install dependencies:
+2. Install dependencies with uv:
 ```bash
-pip install -e .
+uv sync --extra dev
+```
+
+This creates a virtual environment in `.venv/` and installs all dependencies including dev tools.
+
+Alternatively, use the provided Makefile:
+```bash
+make sync  # Same as uv sync --extra dev
 ```
 
 3. Verify installation:
 ```bash
-bean-check ledger/main.bean
+uv run bean-check ledger/main.bean
 ```
 
 ## Quick Start
@@ -75,14 +85,14 @@ columns:
 
 Run the ingestion:
 ```bash
-python ingestion/runner.py
+uv run python ingestion/runner.py
 ```
 
 ### 2. View Your Ledger
 
 ```bash
-bean-check ledger/main.bean
-fava ledger/main.bean
+uv run bean-check ledger/main.bean
+uv run fava ledger/main.bean
 ```
 
 Open http://localhost:5000 in your browser to view your financial data with Fava's web interface.
@@ -90,7 +100,7 @@ Open http://localhost:5000 in your browser to view your financial data with Fava
 ### 3. Generate Inflation-Adjusted Prices
 
 ```bash
-python scripts/generate_inflation_data.py
+uv run python scripts/generate_inflation_data.py
 ```
 
 This creates I-USD (Inflation-adjusted USD) prices that let you view your wealth in real purchasing power terms.
@@ -145,7 +155,7 @@ columns:
 ```
 
 2. Place your data files in `data/` matching the pattern
-3. Run `python ingestion/runner.py`
+3. Run `uv run python ingestion/runner.py`
 
 ### Chart of Accounts
 
@@ -161,35 +171,86 @@ Accounts are defined in `ledger/accounts/*.bean` files. Add new accounts as need
 Run the test suite:
 
 ```bash
-pytest tests/ -v
+uv run pytest tests/ -v
 ```
 
 Run with coverage:
 
 ```bash
-pytest tests/ --cov=ingestion --cov=plugins --cov-report=html
+uv run pytest tests/ --cov=ingestion --cov=plugins --cov-report=html
 ```
 
 ## Development
 
-This project follows Test-Driven Development (TDD):
+This project follows Test-Driven Development (TDD) and uses modern Python tooling:
 
 1. Write tests first in `tests/`
 2. Implement the feature to make tests pass
 3. Refactor and optimize
 4. Run full test suite
 
-### Code Style
+### Code Style & Quality
+
+This project uses **[Ruff](https://docs.astral.sh/ruff/)** for fast linting and formatting:
 
 ```bash
-# Format code
-black .
+# Check and auto-fix code
+uv run ruff check --fix .
 
-# Lint code
-flake8 .
+# Format code
+uv run ruff format .
 
 # Type checking
-mypy .
+uv run mypy .
+```
+
+### Pre-commit Hooks
+
+Pre-commit hooks automatically format and check code before commits:
+
+```bash
+# Install hooks (one-time setup)
+uv run pre-commit install
+
+# Run hooks manually
+uv run pre-commit run --all-files
+```
+
+### Adding Dependencies
+
+Use `uv` to add new dependencies:
+
+```bash
+# Add a runtime dependency
+uv add package-name
+
+# Add a dev dependency
+uv add --dev package-name
+```
+
+Or use the Makefile:
+```bash
+make add-dep PKG=pandas
+make add-dev-dep PKG=pytest-mock
+```
+
+## Makefile Commands
+
+For convenience, a Makefile is provided with common tasks:
+
+```bash
+make help              # Show all available commands
+make sync              # Install/sync dependencies
+make test              # Run tests
+make test-cov          # Run tests with coverage
+make format            # Format code
+make lint              # Run linter with auto-fix
+make check             # Check code quality (no fixes)
+make pre-commit        # Run all pre-commit hooks
+make run-fava          # Start Fava web interface
+make run-ingestion     # Run data ingestion
+make bean-check        # Validate Beancount ledger
+make clean             # Clean up generated files
 ```
 
 ## Advanced Usage
