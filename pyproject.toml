@@ -1,0 +1,103 @@
+[project]
+name = "sfis"
+version = "0.1.0"
+description = "Sovereign Financial Intelligence System"
+authors = [
+    { name = "SFIS Team" }
+]
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "beancount>=2.3.5",
+    "fava>=1.27",
+    "smart-importer>=0.4.0",
+    "pyyaml>=6.0",
+    "tabula-py>=2.8.0",
+    "pdfplumber>=0.10.0",
+    "pandas>=2.0.0",
+    "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.8.0",
+    "mypy>=1.13.0",
+    "pre-commit>=4.0.0",
+    "types-PyYAML>=6.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["ingestion", "plugins"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # pyflakes
+    "I",      # isort
+    "N",      # pep8-naming
+    "UP",     # pyupgrade
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "SIM",    # flake8-simplify
+    "TCH",    # flake8-type-checking
+]
+ignore = [
+    "E501",   # line too long (handled by formatter)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]  # unused imports in __init__.py
+"tests/**" = ["S101"]     # assert allowed in tests
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+pythonpath = ["."]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=ingestion",
+    "--cov=plugins",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "beancount.*",
+    "smart_importer.*",
+    "tabula.*",
+    "pdfplumber.*",
+]
+ignore_missing_imports = true
