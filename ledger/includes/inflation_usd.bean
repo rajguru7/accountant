@@ -1,0 +1,22 @@
+; Inflation-adjusted prices for I-USD
+; Base date: 2023-01-01
+; Generated 15 price entries
+
+2023-01-01 commodity I-USD
+  name: "Inflation-adjusted USD"
+
+2023-01-01 price I-USD 1.00 USD
+2023-02-01 price I-USD 1.01 USD
+2023-03-01 price I-USD 1.01 USD
+2023-04-01 price I-USD 1.01 USD
+2023-05-01 price I-USD 1.02 USD
+2023-06-01 price I-USD 1.02 USD
+2023-07-01 price I-USD 1.02 USD
+2023-08-01 price I-USD 1.03 USD
+2023-09-01 price I-USD 1.03 USD
+2023-10-01 price I-USD 1.03 USD
+2023-11-01 price I-USD 1.03 USD
+2023-12-01 price I-USD 1.03 USD
+2024-01-01 price I-USD 1.03 USD
+2024-02-01 price I-USD 1.04 USD
+2024-03-01 price I-USD 1.04 USD
