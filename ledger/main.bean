@@ -1,0 +1,13 @@
+; Main Beancount Ledger Entry Point
+; Sovereign Financial Intelligence System (SFIS)
+
+option "title" "Personal Finance Ledger"
+option "operating_currency" "USD"
+
+; Include chart of accounts
+include "accounts/us_accounts.bean"
+include "accounts/india_accounts.bean"
+include "accounts/crypto_accounts.bean"
+
+; Include monthly transaction files
+; Example: include "includes/2024-01.bean"

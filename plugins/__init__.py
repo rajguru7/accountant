@@ -1,0 +1,3 @@
+"""
+Analytics plugins for Beancount
+"""

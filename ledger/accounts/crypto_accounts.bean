@@ -1,0 +1,27 @@
+; Cryptocurrency Account Definitions
+; Chart of Accounts for cryptocurrency holdings
+
+; === Assets ===
+2020-01-01 open Assets:Crypto:Exchange:Coinbase:Cash USD
+2020-01-01 open Assets:Crypto:Exchange:Coinbase:BTC BTC
+2020-01-01 open Assets:Crypto:Exchange:Coinbase:ETH ETH
+
+2020-01-01 open Assets:Crypto:Wallet:Hardware:BTC BTC
+2020-01-01 open Assets:Crypto:Wallet:Hardware:ETH ETH
+
+; === Income ===
+2020-01-01 open Income:Crypto:Staking USD, BTC, ETH
+2020-01-01 open Income:Crypto:Mining USD, BTC, ETH
+2020-01-01 open Income:Crypto:CapitalGains USD
+
+; === Expenses ===
+2020-01-01 open Expenses:Crypto:Fees USD
+2020-01-01 open Expenses:Crypto:NetworkGas USD, ETH
+
+; === Commodities ===
+; Define price commodity for cryptocurrencies
+2020-01-01 commodity BTC
+  name: "Bitcoin"
+
+2020-01-01 commodity ETH
+  name: "Ethereum"
